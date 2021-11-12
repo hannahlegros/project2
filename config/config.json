@@ -1,16 +1,22 @@
 {
   "development": {
-    "database": "express_auth_development",
+    "username": "postgres",
+    "password": "Diesel79",
+    "database": "cocktail_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "username": "postgres",
+    "password": "Diesel79",
+    "database": "cocktail_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "express_auth_production",
+    "username": "postgres",
+    "password": "Diesel79",
+    "database": "cocktail_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
