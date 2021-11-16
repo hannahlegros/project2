@@ -51,8 +51,10 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
+app.use('/drinksByName', require('./controllers/byName'))
+
 
 app.listen(3000, ()=>{
-    console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
+    // console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })
