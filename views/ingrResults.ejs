@@ -1,11 +1,11 @@
-<% if(nameRes === undefined) { %>
+<% if(ingrRes === undefined) { %>
     <h4>no drinks for you!</h4>
     <h6>try again!</h6>
 <% } else {%>
     <ul>
-        <% nameRes.forEach(function(result) { %>
+        <% ingrRes.forEach(function(result) { %>
             <li>
-                <a href="/drinksByName/<%=result.strDrink%>">
+                <a href="/drinksByIngredient/<%=result.strDrink%>">
                     <%= result.strDrink %>
                 </a>
             </li>
