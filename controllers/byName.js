@@ -19,13 +19,14 @@ router.post('/', (req, res) => {
     })
 })
 
+// GET an individual recipe for a drink
 router.get('/:id', (req, res) => {
     let drinkId = req.params.id
     // console.log('this is req.params.id: ', req.params.id)
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
         .then(apiResults => {
-            console.log('this is apiRes.data.drinks: ', apiResults.data.drinks)
-            console.log('this is apiRes.data.strIngredient1: ', apiResults.data.drinks[0].strIngredient1)
+            // console.log('this is apiRes.data.drinks: ', apiResults.data.drinks)
+            // console.log('this is apiRes.data.strIngredient1: ', apiResults.data.drinks[0].strIngredient1)
             let id = apiResults.data.drinks[0].idDrink
             let name = apiResults.data.drinks[0].strDrink
             let ingOne = apiResults.data.drinks[0].strIngredient1
