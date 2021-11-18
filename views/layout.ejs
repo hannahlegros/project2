@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pour Decisions</title>
+    <title>pour decisions</title>
 </head>
 <body>
     <header>
-        <h1>Pour Decisions</h1>
+        <h1>pour decisions</h1>
         <nav>
             <ul>
               <% if (!currentUser) { %>
@@ -17,6 +17,7 @@
               <% } else { %>
                 <li><a href="/auth/logout">logout</a></li>
                 <li><a href="/profile">profile</a></li>
+                <li><a href="/">home</a></li>
                 <li><a href="/myDrinks">my drinks</a></li>
               <% } %>
             </ul>

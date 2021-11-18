@@ -3,11 +3,15 @@
     <h6>try again!</h6>
 <% } else {%>
     <ul>
-        <% ingrRes.forEach(function(result) { %>
+        <% ingrRes.forEach(result => { %>
             <li>
-                <a href="/drinksByIngredient/<%=result.strDrink%>">
-                    <%= result.strDrink %>
+                <a href="/drinksByIngredient/<%= result.strIngredient%>">
+                    <%= result.strIngredient %>
                 </a>
+                <form action="/myBar" method="POST">
+                    <input hidden type="text" name="ingrName" value="<%= name %>">
+                    <button type="submit">love it!</button>
+                </form>
             </li>
         <% }) %>
     </ul>

@@ -12,11 +12,11 @@ const methodOverride = require('method-override')
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
-// method-override
-app.use(methodOverride('_method'))
-
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
+
+// method-override
+app.use(methodOverride('_method'))
 
 // session middleware
 app.use(session({

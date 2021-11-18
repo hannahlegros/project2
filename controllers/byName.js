@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
     .then(apiRes => {
         // console.log('this is apiRes.data.drinks:', apiRes.data.drinks)
         const nameRes = apiRes.data.drinks
-        res.render('nameResults', {nameRes: nameRes})
+        res.render('drinkResults', {nameRes: nameRes})
     })
     .catch(error =>{
         console.log(error)
