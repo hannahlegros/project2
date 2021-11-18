@@ -6,11 +6,14 @@ const session = require('express-session')
 const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
-
+const methodOverride = require('method-override')
 
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+
+// method-override
+app.use(methodOverride('_method'))
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
@@ -53,7 +56,7 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 
 app.use('/drinksByName', require('./controllers/byName'))
 app.use('/drinksByIngredient', require('./controllers/byIngredient'))
-app.use('/myLoveIt', require('./controllers/faveDrinks'))
+app.use('/myDrinks', require('./controllers/myDrinks'))
 
 
 app.listen(3000, ()=>{

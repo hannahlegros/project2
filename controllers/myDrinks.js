@@ -2,13 +2,14 @@ let express = require('express')
 let db = require('../models')
 let router = express.Router()
 const byName = require('./byName')
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 // GET show drinks added to Love It
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     db.recipe.findAll()
         .then(faves => {
             console.log(faves)
-            res.render('faveDrinks.ejs', {loveIt: faves})
+            res.render('myDrinks.ejs', {myDrinks: faves})
         })
         .catch(error => {
             console.log(error)
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 })
 
 // POST add favorite drink to Love It
-router.post('/addLoveIt', (req, res) => {
+router.post('/addMyDrink', isLoggedIn, (req, res) => {
     const data = JSON.parse(JSON.stringify(req.body))
     console.log('this is data:', data)
     db.recipe.create({
@@ -25,12 +26,25 @@ router.post('/addLoveIt', (req, res) => {
     })
     .then (createdFave => {
         // console.log('db instance created: ', createdFave)
-        res.redirect('/myLoveIt')
+        res.redirect('/myDrinks')
     })
     .catch(error => {
         console.log(error)
     })
 })
-
+// DELETE favorite
+router.delete('/:id', (req, res) => {
+    console.log('this is the id: ', req.params.id)
+    db.recipe.destroy({
+        where: {id: req.params.id}
+    })
+    .then(deletedItem => {
+        console.log('you deleted: ', deletedItem)
+        res.redirect('/myDrinks')
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+})
 
 module.exports = router

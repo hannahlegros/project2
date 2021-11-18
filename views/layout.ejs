@@ -12,11 +12,12 @@
         <nav>
             <ul>
               <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/signup">signup</a></li>
+                <li><a href="/auth/login">login</a></li>
               <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
+                <li><a href="/auth/logout">logout</a></li>
+                <li><a href="/profile">profile</a></li>
+                <li><a href="/myDrinks">my drinks</a></li>
               <% } %>
             </ul>
           </nav>

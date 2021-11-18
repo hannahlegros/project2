@@ -1,0 +1,10 @@
+<h2>my drinks</h2>
+
+<% myDrinks.forEach(drink => { %>
+    <h4>
+        <a href="/drinksByName/<%= drink.drinkId %>"><%= drink.name %></a>
+    </h4>
+    <form action="/myDrinks/<%= drink.drinkId %>?_method=DELETE" method="POST">
+        <button type="submit">remove</button>
+    </form>
+<% }) %>

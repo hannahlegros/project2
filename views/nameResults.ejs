@@ -3,7 +3,7 @@
     <h6>try again!</h6>
 <% } else {%>
     <ul>
-        <% nameRes.forEach(function(result) { %>
+        <% nameRes.forEach(result => { %>
             <li>
                 <a href="/drinksByName/<%=result.idDrink%>">
                     <%= result.strDrink %>
