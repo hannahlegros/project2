@@ -1,17 +1,13 @@
 <% if(ingrRes === undefined) { %>
     <h4>no drinks for you!</h4>
     <h6>try again!</h6>
-<% } else {%>
+<% } else { %>
     <ul>
         <% ingrRes.forEach(result => { %>
             <li>
-                <a href="/drinksByIngredient/<%= result.strIngredient%>">
+                <a href="/drinksByIngredient/<%= result.strIngredient %>">
                     <%= result.strIngredient %>
                 </a>
-                <form action="/myBar" method="POST">
-                    <input hidden type="text" name="ingrName" value="<%= name %>">
-                    <button type="submit">love it!</button>
-                </form>
             </li>
         <% }) %>
     </ul>
