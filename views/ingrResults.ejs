@@ -1,5 +1,5 @@
 <% if(ingrRes === undefined) { %>
-    <h4>no drinks for you!</h4>
+    <h4>nothing for you!</h4>
     <h6>try again!</h6>
 <% } else { %>
     <ul>
@@ -8,6 +8,10 @@
                 <a href="/drinksByIngredient/<%= result.strIngredient %>">
                     <%= result.strIngredient %>
                 </a>
+                <form action="/myBar" method="POST">
+                    <input hidden type="text" name="ingrName" value="<%= result.strIngredient %>">
+                    <button type="submit">add it!</button>
+                </form>
             </li>
         <% }) %>
     </ul>

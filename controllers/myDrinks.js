@@ -5,7 +5,7 @@ const byName = require('./byName')
 const isLoggedIn = require('../middleware/isLoggedIn')
 const user = require('../models/user')
 
-// GET show drinks added to Love It
+// GET show drinks added to myDrinks
 router.get('/', isLoggedIn, (req, res) => {
     console.log('this is req.user:', req.user)
     req.user.getRecipes()
@@ -13,13 +13,12 @@ router.get('/', isLoggedIn, (req, res) => {
         console.log('this is savedrecipes:', savedRecipes)
         res.render('myDrinks.ejs', {myDrinks: savedRecipes})
     })
-    
         .catch(error => {
             console.log(error)
         })
 })
 
-// POST add favorite drink to Love It
+// POST add favorite drink to myDrinks
 router.post('/addMyDrink', isLoggedIn, (req, res) => {
     const data = JSON.parse(JSON.stringify(req.body))
     console.log('this is data:', data)
