@@ -8,9 +8,9 @@
                 <a href="/drinksByIngredient/<%= result.strIngredient %>">
                     <%= result.strIngredient %>
                 </a>
-                <form action="/myBar" method="POST">
+                <form action="/myBar/addToBar" method="POST">
                     <input hidden type="text" name="ingrName" value="<%= result.strIngredient %>">
-                    <button type="submit">put it in my bar!</button>
+                    <button type="submit">add to bar!</button>
                 </form>
             </li>
         <% }) %>
