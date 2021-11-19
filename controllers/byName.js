@@ -3,7 +3,7 @@ let db = require('../models')
 let router = express.Router()
 let axios = require('axios')
 
-// POST /ByName list of drinks by name
+// POST list of drinks by name
 router.post('/', (req, res) => {
     // console.log('this is req.body: ', req.body)
     let drinkName = req.body.byName

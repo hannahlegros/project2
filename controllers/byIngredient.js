@@ -9,9 +9,7 @@ router.post('/', (req, res) => {
     console.log('drink ingr:', drinkIngr)
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/search.php?i=${drinkIngr}`)
     .then(apiRes => {
-        // console.log('this is apiRes:', apiRes)
         // console.log('this is apiRes.data:', apiRes.data)
-        // console.log('this is apiRes.data.drinks:', apiRes.data.drinks)
         const ingrRes = apiRes.data.ingredients
         res.render('ingrResults', {ingrRes: ingrRes})
     })
@@ -20,8 +18,19 @@ router.post('/', (req, res) => {
     })
 })
 
-
-// router.get('/', (req, res) => {
-
-// })
+// POST list of drinks with selected ingredient
+router.get('/:id', (req, res) => {
+    let ingred = req.params.id
+    console.log('ingredient:', ingred)
+    axios.get(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingred}`)
+    .then(apiRes => {
+        console.log(apiRes.data)
+        const ingrRes = apiRes.data.drinks
+        console.log('ingred results: ', ingrRes)
+        res.render('drinksByIng.ejs', {ingrRes: ingrRes})
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
 module.exports = router

@@ -1,0 +1,9 @@
+<h2>drinks with <%= %></h2>
+<ul>
+    <% ingrRes.forEach(result => { %>
+        <li>
+            <a href="/drinksByName/<%= result.idDrink %>">
+                <%= result.strDrink %>
+        </li>
+    <% }) %>
+</ul>
