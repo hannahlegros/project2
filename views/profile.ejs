@@ -1,1 +1,8 @@
-<h2><%= currentUser.name %>'s Profile</h2>
+<h2><%= currentUser.name %>'s profile</h2>
+
+<h5>update your username</h5>
+
+<form action="/auth/edit/<%= currentUser.id %>?_method=PUT" method="POST">
+    <input type="text" name="userName" value="<%= currentUser.name %>">
+    <button type="submit">update</button>
+</form>

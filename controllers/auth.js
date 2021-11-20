@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 const passport = require('../config/ppConfig.js')
+const isLoggedIn = require('../middleware/isLoggedIn')
 
 router.get('/signup', (req, res)=>{
     res.render('auth/signup')
@@ -46,6 +47,25 @@ router.post('/login', passport.authenticate('local', {
         successFlash: 'You are now logged in.'
     })
 )
+router.put('/edit/:id', isLoggedIn, (req, res) => {
+    let currentUser = req.params.id
+    // console.log('this is the current user: ', currentUser)
+    const updatedName = JSON.parse(JSON.stringify(req.body)).userName
+    db.user.update({
+        name : updatedName
+    }, {
+        where: {id: currentUser}
+    })
+    .then(editedUser => {
+        console.log('this is edited: ', editedUser)
+        res.redirect('/profile')
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
+    
 
 router.get('/logout', (req, res)=>{
     req.logout() // !-> FLASH <-!

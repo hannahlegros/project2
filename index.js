@@ -18,6 +18,9 @@ app.use(express.urlencoded({extended:false}))
 // method-override
 app.use(methodOverride('_method'))
 
+// styling
+app.use('/static', express.static('public'))
+
 // session middleware
 app.use(session({
     secret: process.env.SUPER_SECRET_SECRET,

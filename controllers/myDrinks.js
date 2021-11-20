@@ -18,6 +18,7 @@ router.get('/', isLoggedIn, (req, res) => {
     })
 })
 
+
 // POST add favorite drink to myDrinks
 router.post('/addMyDrink', isLoggedIn, (req, res) => {
     const data = JSON.parse(JSON.stringify(req.body))
@@ -40,6 +41,7 @@ router.post('/addMyDrink', isLoggedIn, (req, res) => {
         console.log(error)
     })
 })
+
 // DELETE favorite
 router.delete('/:id', (req, res) => {
     console.log('this is the id: ', req.params.id)
