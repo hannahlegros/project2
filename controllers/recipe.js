@@ -2,6 +2,9 @@ let express = require('express')
 let db = require('../models')
 let router = express.Router()
 let axios = require('axios')
+const byName = require('./recipe')
+const isLoggedIn = require('../middleware/isLoggedIn')
+const user = require('../models/user')
 
 // POST list of drinks by name
 router.post('/', (req, res) => {
@@ -15,6 +18,42 @@ router.post('/', (req, res) => {
         res.render('drinkResults', {nameRes: nameRes})
     })
     .catch(error =>{
+        console.log(error)
+    })
+})
+
+// GET show drinks added to myDrinks
+router.get('/myDrinks', isLoggedIn, (req, res) => {
+    console.log('this is req.user:', req.user)
+    req.user.getRecipes()
+    .then(savedRecipes => {
+        // console.log('this is savedrecipes:', savedRecipes)
+        res.render('myDrinks.ejs', {myDrinks: savedRecipes})
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
+// POST add favorite drink to myDrinks
+router.post('/addMyDrink', isLoggedIn, (req, res) => {
+    const data = JSON.parse(JSON.stringify(req.body))
+    // console.log('this is data:', data)
+    db.recipe.findOrCreate({
+        where: {
+            name: data.drinkName,
+            idDrink: data.drinkId
+        }
+    })
+    .then(([createdFave, wasCreated]) => {
+        // console.log('db instance created: ', createdFave)
+        req.user.addRecipe(createdFave)
+        .then(relationInfo => {
+            // console.log('this is relationinfo: ', relationInfo)
+            res.redirect('/recipe/myDrinks')
+        })
+    })
+    .catch(error => {
         console.log(error)
     })
 })
@@ -67,7 +106,20 @@ router.get('/:id', (req, res) => {
         })
 })
 
-
+// DELETE favorite
+router.delete('/:id', (req, res) => {
+    console.log('this is the id: ', req.params.id)
+    db.recipe.destroy({
+        where: {idDrink: req.params.id}
+    })
+    .then(deletedItem => {
+        console.log('you deleted: ', deletedItem)
+        res.redirect('/recipe/myDrinks')
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+})
 
 
 module.exports = router

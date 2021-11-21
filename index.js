@@ -57,10 +57,8 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
-app.use('/drinksByName', require('./controllers/byName'))
-app.use('/drinksByIngredient', require('./controllers/byIngredient'))
-app.use('/myDrinks', require('./controllers/myDrinks'))
-app.use('/myBar', require('./controllers/myBar'))
+app.use('/recipe', require('./controllers/recipe'))
+app.use('/ingredient', require('./controllers/ingredient'))
 
 
 app.listen(3000, ()=>{

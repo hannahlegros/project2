@@ -2,9 +2,9 @@
 
 <% myDrinks.forEach(drink => { %>
     <h4>
-        <a href="/drinksByName/<%= drink.idDrink %>"><%= drink.name %></a>
+        <a href="/recipe/<%= drink.idDrink %>"><%= drink.name %></a>
     </h4>
-    <form action="/myDrinks/<%= drink.idDrink %>?_method=DELETE" method="POST">
+    <form action="/recipe/<%= drink.idDrink %>?_method=DELETE" method="POST">
         <button type="submit">remove</button>
     </form>
 <% }) %>

@@ -1,5 +1,5 @@
 <h2><%= name %></h2>
-<form action="/myDrinks/addMyDrink" method="POST">
+<form action="/recipe/addMyDrink" method="POST">
     <input hidden type="text" name="drinkName" value="<%= name %>">
     <input hidden type="text" name="drinkId" value="<%= id %>">
     <button type="submit">love it!</button>
@@ -9,7 +9,7 @@
         <% if(ingOne != null) { %> 
             <%= measureOne %>
             <%= ingOne %>
-        <% } %>
+        <% } %>   
     </li>
     <li>
         <% if(ingTwo != null) { %> 

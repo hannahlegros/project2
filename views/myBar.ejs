@@ -2,9 +2,9 @@
 
 <% myBar.forEach(ingred => { %>
     <h4>
-        <a href="/drinksByIngredient/<%= ingred.name %>"><%= ingred.name %></a>
+        <a href="/ingredient/<%= ingred.name %>"><%= ingred.name %></a>
     </h4>
-    <form action="/myBar/<%= ingred.name %>?_method=DELETE" method="POST">
+    <form action="/ingredient/<%= ingred.name %>?_method=DELETE" method="POST">
         <button type="submit">remove</button>
     </form>
 <% }) %>

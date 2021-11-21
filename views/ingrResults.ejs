@@ -5,10 +5,10 @@
     <ul>
         <% ingrRes.forEach(result => { %>
             <li>
-                <a href="/drinksByIngredient/<%= result.strIngredient %>">
+                <a href="/ingredient/<%= result.strIngredient %>">
                     <%= result.strIngredient %>
                 </a>
-                <form action="/myBar/addToBar" method="POST">
+                <form action="/ingredient/addToBar" method="POST">
                     <input hidden type="text" name="ingrName" value="<%= result.strIngredient %>">
                     <button type="submit">add to bar!</button>
                 </form>
