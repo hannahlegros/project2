@@ -1,21 +1,19 @@
 {
   "development": {
     "username": "postgres",
-    "password": "Diesel79",
+    "password": "CONFIG_PW",
     "database": "cocktail_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "Diesel79",
+    "password": "CONFIG_PW",
     "database": "cocktail_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": "Diesel79",
     "use_env_variable": "DATABASE_URL"
   }
 }
