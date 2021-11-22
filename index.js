@@ -61,7 +61,7 @@ app.use('/recipe', require('./controllers/recipe'))
 app.use('/ingredient', require('./controllers/ingredient'))
 
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
     // console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })
