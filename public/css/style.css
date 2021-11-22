@@ -33,6 +33,7 @@ h4 {
 a {
     font-size: 14px;
     color: whitesmoke; 
+    text-decoration: none;
 }
 a:hover {
     color: rgb(110, 1, 110);
