@@ -65,9 +65,9 @@ router.get('/:id', (req, res) => {
     axios.get(`http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
         .then(apiResults => {
             // console.log('this is apiRes.data.drinks: ', apiResults.data.drinks)
-            // console.log('this is apiRes.data.strIngredient1: ', apiResults.data.drinks[0].strIngredient1)
             let id = apiResults.data.drinks[0].idDrink
             let name = apiResults.data.drinks[0].strDrink
+            let img = apiResults.data.drinks[0].strDrinkThumb
             let ingOne = apiResults.data.drinks[0].strIngredient1
             let ingTwo = apiResults.data.drinks[0].strIngredient2
             let ingThree = apiResults.data.drinks[0].strIngredient3
@@ -99,7 +99,7 @@ router.get('/:id', (req, res) => {
             let measureFourteen = apiResults.data.drinks[0].strMeasure14
             let measureFifteen = apiResults.data.drinks[0].strMeasure15
             let instructions = apiResults.data.drinks[0].strInstructions
-            res.render('drinkDetail.ejs', {id: id, name: name, ingOne: ingOne, ingTwo: ingTwo, ingThree: ingThree, ingFour: ingFour, ingFive: ingFive, ingSix: ingSix, ingSeven: ingSeven, ingEight: ingEight, ingNine: ingNine, ingTen: ingTen, ingEleven: ingEleven, ingTwelve: ingTwelve, ingThirteen: ingThirteen, ingFourteen: ingFourteen, ingFifteen: ingFifteen, measureOne: measureOne, measureTwo: measureTwo, measureThree: measureThree, measureFour: measureFour, measureFive: measureFive, measureSix: measureSix, measureSeven: measureSeven, measureEight: measureEight, measureNine: measureNine, measureTen: measureTen, measureEleven: measureEleven, measureTwelve: measureTwelve, measureThirteen: measureThirteen, measureFourteen: measureFourteen, measureFifteen: measureFifteen, instructions: instructions})
+            res.render('drinkDetail.ejs', {id: id, name: name, img: img, ingOne: ingOne, ingTwo: ingTwo, ingThree: ingThree, ingFour: ingFour, ingFive: ingFive, ingSix: ingSix, ingSeven: ingSeven, ingEight: ingEight, ingNine: ingNine, ingTen: ingTen, ingEleven: ingEleven, ingTwelve: ingTwelve, ingThirteen: ingThirteen, ingFourteen: ingFourteen, ingFifteen: ingFifteen, measureOne: measureOne, measureTwo: measureTwo, measureThree: measureThree, measureFour: measureFour, measureFive: measureFive, measureSix: measureSix, measureSeven: measureSeven, measureEight: measureEight, measureNine: measureNine, measureTen: measureTen, measureEleven: measureEleven, measureTwelve: measureTwelve, measureThirteen: measureThirteen, measureFourteen: measureFourteen, measureFifteen: measureFifteen, instructions: instructions})
         })
         .catch(err => {
             console.log(err)

@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Genos', sans-serif;
+    color: whitesmoke;
+    background-color: rgb(36, 36, 36);
+}
+h1 {
+    font-family: 'Grechen Fuemen', cursive;
+    font-size: 60px;
+    margin: 0px; 
+    padding: 0px 0px 10px 0px;
+    background-color: rgba(110, 1, 110, 0.479);
+}
+h2 {
+    font-size: 30px;
+}
+h4 {
+    font-size: 17px;
+    margin: 0px 0px 3px 0px;
+}
+.menu {
+    list-style-type: none;
+    text-align: center; 
+    padding: 0;
+    margin: 0;
+}
+.menu li{
+    display: inline-block;
+    padding: 0px 10px 50px 10px;
+}
+a {
+    font-size: 14px;
+    color: whitesmoke; 
+}
+a:hover {
+    color: rgb(110, 1, 110);
+}
+button, .button {
+    background-color: rgb(110, 1, 110);
+    font-family: 'Genos', sans-serif;
+    color: whitesmoke;
+    border-radius: 15px;
+}
+button:hover, .button:hover {
+    background-color: whitesmoke;
+    color:rgb(36, 36, 36);
+}
+form {
+    padding: 0px 0px 17px 0px;
+    font-size: 17px;
+}
+.results {
+    padding: 10px;
+}

@@ -1,10 +1,13 @@
+<link rel="stylesheet" href="/static/css/style.css">
+
 <h2><%= name %></h2>
+<img src="<%= img %>/preview" alt="<%= name %>">
 <form action="/recipe/addMyDrink" method="POST">
     <input hidden type="text" name="drinkName" value="<%= name %>">
     <input hidden type="text" name="drinkId" value="<%= id %>">
     <button type="submit">love it!</button>
 </form>
-<ul>
+<ul style="list-style-type: none;">
     <li>
         <% if(ingOne != null) { %> 
             <%= measureOne %>
@@ -27,7 +30,7 @@
         <% if(ingFour != null) { %> 
             <%= measureFour %>
             <%= ingFour %>
-        <% } %>
+        <% }%>   
     </li>
     <li>
         <% if(ingFive != null) { %> 

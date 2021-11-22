@@ -1,10 +1,10 @@
-<% if(nameRes === undefined) { %>
+<% if(nameRes == undefined) { %>
     <h4>no drinks for you!</h4>
     <h6>try again!</h6>
 <% } else {%>
-    <ul>
+    <ul style="list-style-type: none;">
         <% nameRes.forEach(result => { %>
-            <li>
+            <li style="list-style-type: none;" class="results">
                 <a href="/recipe/<%= result.idDrink %>">
                     <%= result.strDrink %>
                 </a>

@@ -1,7 +1,7 @@
 <h2>drinks with <%= ingred %></h2>
 <ul>
     <% ingrRes.forEach(result => { %>
-        <li>
+        <li style="list-style-type: none;" class="results">
             <a href="/recipe/<%= result.idDrink %>">
                 <%= result.strDrink %>
         </li>

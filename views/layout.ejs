@@ -4,23 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="http://localhost:3000/css/style.css">
+    <!-- STYLE SHEET LINK -->
+    <!-- <link rel="stylesheet" href="http://localhost:3000/css/style.css"> -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Genos:wght@100&display=swap" rel="stylesheet">
+
     <title>pour decisions</title>
 </head>
 <body>
     <header>
         <h1>pour decisions</h1>
         <nav>
-            <ul>
+            <ul class="menu">
               <% if (!currentUser) { %>
                 <li><a href="/auth/signup">signup</a></li>
                 <li><a href="/auth/login">login</a></li>
               <% } else { %>
-                <li><a href="/auth/logout">logout</a></li>
-                <li><a href="/profile">profile</a></li>
                 <li><a href="/">home</a></li>
                 <li><a href="/recipe/myDrinks">my drinks</a></li>
                 <li><a href="/ingredient/myBar">my bar</a></li>
+                <li><a href="/profile">profile</a></li>
+                <li><a href="/auth/logout">logout</a></li>
               <% } %>
             </ul>
           </nav>
