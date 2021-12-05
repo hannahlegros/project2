@@ -2,6 +2,12 @@
 
 ## https://pour--decisions.herokuapp.com/
 
+## Install & Run
+     * Fork & Clone
+     * Npm i to install dependencies
+     * Nodemon to open on localhost:3000
+     * No API key required
+
 ## Tech Stack
      * Sequelize
      * Node - express, express layouts, ejs, axios, pg

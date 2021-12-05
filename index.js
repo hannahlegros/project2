@@ -60,8 +60,12 @@ app.get('/profile', isLoggedIn, (req, res)=>{
 app.use('/recipe', require('./controllers/recipe'))
 app.use('/ingredient', require('./controllers/ingredient'))
 
+app.get('/*', (req,res)=>{
+    res.render('404')
+})
+
 
 app.listen(process.env.PORT || 3000, ()=>{
     // console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
-    console.log("auth_practice running on port 3000")
+    console.log("drink up on port 3000")
 })

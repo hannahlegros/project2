@@ -55,3 +55,8 @@ form {
 .results {
     padding: 10px;
 }
+.error {
+    display: block;
+    font-weight: bolder;
+    font-size: 17px;
+}
